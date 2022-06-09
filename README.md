@@ -9,6 +9,10 @@ A simple Flutter application that displays a list of popular people (actors, dir
 - fluttertoast
 - gallery_saver
 
+
+# API used: 
+themoviedb.org api (https://developers.themoviedb.org/3)
+
 # Demo:
 
 <video src='https://user-images.githubusercontent.com/74993384/172926770-80fadcb8-5c0a-47e4-aa73-394238f00976.mp4'>
@@ -20,5 +24,3 @@ image is saved in the gallery in the created album named "popular_people":
   
 <img src="https://user-images.githubusercontent.com/74993384/172926819-99718e5e-6ebf-403e-b27a-961790c78730.jpeg" height="640" width="288">
 
-# API used: 
-themoviedb.org api (https://developers.themoviedb.org/3)
