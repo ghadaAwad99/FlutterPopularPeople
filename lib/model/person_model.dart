@@ -97,81 +97,36 @@ class KnownFor {
   String originalName;
 
   factory KnownFor.fromJson(Map<String, dynamic> json) => KnownFor(
-        adult: json["adult"] == null ? null : json["adult"],
-        backdropPath:
-            json["backdrop_path"] == null ? null : json["backdrop_path"],
+        adult: json["adult"],
+        backdropPath: json["backdrop_path"],
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         id: json["id"],
         media_type: json["media_type"],
-        originalTitle:
-            json["original_title"] == null ? null : json["original_title"],
+        originalTitle: json["original_title"],
         overview: json["overview"],
         posterPath: json["poster_path"],
-        title: json["title"] == null ? null : json["title"],
-        video: json["video"] == null ? null : json["video"],
+        title: json["title"],
+        video: json["video"],
         voteAverage: json["vote_average"].toDouble(),
         voteCount: json["vote_count"],
-        name: json["name"] == null ? null : json["name"],
-        originalName:
-            json["original_name"] == null ? null : json["original_name"],
+        name: json["name"],
+        originalName: json["original_name"],
       );
 
   Map<String, dynamic> toJson() => {
-        "adult": adult == null ? null : adult,
-        "backdrop_path": backdropPath == null ? null : backdropPath,
+        "adult": adult,
+        "backdrop_path": backdropPath,
         "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
         "id": id,
         "media_type": media_type,
-        "original_title": originalTitle == null ? null : originalTitle,
+        "original_title": originalTitle,
         "overview": overview,
         "poster_path": posterPath,
-        "title": title == null ? null : title,
-        "video": video == null ? null : video,
+        "title": title,
+        "video": video,
         "vote_average": voteAverage,
         "vote_count": voteCount,
-        "name": name == null ? null : name,
-        "original_name": originalName == null ? null : originalName,
+        "name": name,
+        "original_name": originalName,
       };
 }
-/*
-enum MediaType { MOVIE, TV }
-
-final mediaTypeValues = EnumValues({
-  "movie": MediaType.MOVIE,
-  "tv": MediaType.TV
-});
-
-enum OriginCountry { US, TH }
-
-final originCountryValues = EnumValues({
-  "TH": OriginCountry.TH,
-  "US": OriginCountry.US
-});
-
-enum OriginalLanguage { EN, TH, HI }
-
-final originalLanguageValues = EnumValues({
-  "en": OriginalLanguage.EN,
-  "hi": OriginalLanguage.HI,
-  "th": OriginalLanguage.TH
-});
-
-enum KnownForDepartment { ACTING }
-
-final knownForDepartmentValues = EnumValues({
-  "Acting": KnownForDepartment.ACTING
-});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
-}*/

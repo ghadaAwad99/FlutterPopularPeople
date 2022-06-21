@@ -5,7 +5,7 @@ import '../../model/person_details_model.dart';
 
 class PersonDetailsProvider extends ChangeNotifier {
   PersonDetailsModel? personDetails;
-  PeopleRepository _peopleRepository = PeopleRepository();
+  final PeopleRepository _peopleRepository = PeopleRepository();
 
   PersonDetailsProvider(int id) {
     getPersonDetails(id);

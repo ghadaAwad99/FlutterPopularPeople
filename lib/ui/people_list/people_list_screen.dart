@@ -11,21 +11,17 @@ class PeopleListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("build PeopleListScreen");
     return Scaffold(
         appBar: AppBar(
-          title: Text("Flutter Popular People"),
+          title: const Text("Flutter Popular People"),
         ),
         body: ChangeNotifierProvider<PeopleListProvider>(
           create: (context) => PeopleListProvider(),
           child: Consumer<PeopleListProvider>(
             builder: (buildContext, peopleListProvider, _) {
-              print("build Consumer");
-              print("length is ${peopleListProvider.peopleList!.length}");
               return ListView.builder(
                   itemCount: peopleListProvider.peopleList!.length,
                   itemBuilder: (context, index) {
-                    print("length is ${peopleListProvider.peopleList!.length}");
                     return PeopleListWidget(
                       person: peopleListProvider.peopleList![index],
                     );
@@ -45,7 +41,7 @@ class PeopleListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       child: GestureDetector(
         child: Card(
           elevation: 6.0,
@@ -53,7 +49,7 @@ class PeopleListWidget extends StatelessWidget {
           child: Row(
             children: [
               Hero(
-                tag: "${person.name}",
+                tag: person.name,
                 child: Container(
                   width: 120,
                   height: 120,
@@ -74,19 +70,19 @@ class PeopleListWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(bottom: 8.0),
+                        padding: const EdgeInsets.only(bottom: 8.0),
                         child: Text(
-                          person.name as String,
+                          person.name,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                           softWrap: false,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18.0),
                           //TextStyle(fontWeight: FontWeight.bold)
                         ),
                       ),
                       Text(
-                        person.known_for_department as String,
+                        person.known_for_department,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 3,
                         softWrap: false,

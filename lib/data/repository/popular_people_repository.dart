@@ -14,19 +14,6 @@ class PeopleRepository {
     print("fetchPopularPeople inside PeopleRepository");
     var connectivityResult = await (Connectivity().checkConnectivity());
     final dbHelper = DbHelper.instance;
-    /*if(connectivityResult == ConnectivityResult.none){
-      Fluttertoast.showToast(
-          msg: "you are offline",
-          toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.grey,
-          textColor: Colors.white,
-          fontSize: 16.0
-      );
-      final savedMovies = await dbHelper.queryAllRows();
-      return PersonModel.fromJson(savedMovies!.map((savedMovie) => PersonModel.fromJson(savedMovie)));
-    }else{*/
     Fluttertoast.showToast(
         msg: "you are online",
         toastLength: Toast.LENGTH_LONG,
@@ -37,9 +24,6 @@ class PeopleRepository {
         fontSize: 16.0);
     print("you are online");
     final peopleList = await _peopleService.fetchPopularPeople();
-    // for(final movie in peopleList){
-    //  dbHelper.insert(movie.toMap());
-    // }
     return peopleList;
   }
 

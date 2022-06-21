@@ -7,7 +7,7 @@ import 'package:gallery_saver/gallery_saver.dart';
 class PersonDetailsScreen extends StatelessWidget {
   final Result person;
 
-  PersonDetailsScreen(this.person);
+  const PersonDetailsScreen(this.person, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class PersonDetailsScreen extends StatelessWidget {
     //);
     return Scaffold(
         appBar: AppBar(
-          title: Text(person.name as String ?? ""),
+          title: Text(person.name),
         ),
         body: ChangeNotifierProvider<PersonDetailsProvider>(
           create: (context) => PersonDetailsProvider(person.id),
@@ -33,19 +33,17 @@ class PersonDetailsScreen extends StatelessWidget {
                   child: Image(
                       height: 400,
                       image: NetworkImage(
-                          "https://image.tmdb.org/t/p/w500/${person.knownFor[i].posterPath}" ??
-                              "")),
+                          "https://image.tmdb.org/t/p/w500/${person.knownFor[i].posterPath}")),
                 ));
                 children.add(const Padding(padding: EdgeInsets.all(5.0)));
               }
-              print("build Consumer");
               return SingleChildScrollView(
                 child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
                         Hero(
-                          tag: "${person.name}",
+                          tag: person.name,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: Image(
